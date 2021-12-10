@@ -12,23 +12,9 @@ import { fetchSmurfs } from "./actions";
 import { connect } from 'react-redux';
 
 const App = (props) => {
-  const { isLoading, error } = props;
-
   useEffect(() => {
     props.fetchSmurfs();
   }, [])
-
-  if (isLoading) {
-    return(
-      <h2>Retrieving smurfs...</h2>
-    )
-  }
-
-  if (error) {
-    return(
-      <h2>Cannot retrieve Smurfs: {error} </h2>
-    )
-  }
 
   return (
     <div className="App">
@@ -42,16 +28,8 @@ const App = (props) => {
   );
 }
 
-const mapStateToProps = state => {
-  return({
-    allSmurfs: state.allSmurfs,
-    isLoading: state.isLoading,
-    error: state.error
-  })
-}
+export default connect(null, { fetchSmurfs })(App);
 
-export default connect(mapStateToProps, { fetchSmurfs })(App);
-
-//Task List:
-//1. Connect the fetchSmurfs actions to the App component.
-//2. Call the fetchSmurfs action when the component mounts.
+// Task List:
+// 1. Connect the fetchSmurfs actions to the App component.
+// 2. Call the fetchSmurfs action when the component mounts.
