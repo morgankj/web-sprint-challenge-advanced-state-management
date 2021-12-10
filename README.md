@@ -119,10 +119,11 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 All 3 are part of the redux data flow.
 - actions: are JS objects that contain data - they are the only source of info for your Store, and they contain a "type" attribute to indicate functionality that should be performed.
 - reducers: are pure functions that take the previous state of your application and use ^actions^ to return a new state. "state" and "action" are the 2 required parameters for any reducer - reducers use switch statements to break down action options, and usually require an initial state value to start.
-- store: is an immutable object. Usually referred to as a container, it holds the values for your application's state.
+- store: is an immutable object. Usually referred to as a container, it holds the values for your application's state. This data is immutable and functions as the core value(s) for your application, hence it's common association as the "single source of truth."
 
 3. What does `redux-thunk` allow us to do? How does it change our `action-creators`?
-- redux-thunk is middleware that allows you to call action creators; it serves as a checkpoint to see if the action passed is a function, and if so, then it will return the function and pass "dispatch" to the next function.
+- redux-thunk is middleware that allows you to call action creators; it serves as a checkpoint to see if the action passed is a function, and if so, then it will return the function and pass "dispatch" to the next function. It is an inner function returned by an outer function.
+Thunks also allow us to write logic that is entirely separate from a UI layer. Thunk action creators are usually used to generate thunk functions that are dispatched, and typically closes over any arguments passed to the action creator, so they can be used in other logic.
 
 4. What is your favorite state management system you've learned and this sprint? Please explain why!
 - I really liked Context API - I overthink _everything_, so the simple and straightforward nature of it really appeals to me, personally. Obviously, the heavy setup has its drawbacks, but in general I appreciate how clean-cut and straight-forward it is.
