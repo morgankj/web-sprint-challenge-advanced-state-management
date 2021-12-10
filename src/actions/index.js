@@ -34,23 +34,9 @@ export const addSmurfSuccess = (newSmurf) => {
     return({ type: ADD_SMURF_SUCCESS, payload: newSmurf });
 }
 
-export const setError = (error) => {
+export const addSmurfFail = (error) => {
     return({ type: ADD_SMURF_FAIL, payload: error });
 }
-
-
-
-
-export const errorMessage = () => {}
-
-// export const setError = (errorMessage) => {
-//     return({type: ADD_SMURF_FAIL, payload: { error: errorMessage }})
-// }
-
-// export const addSmurf = ({ name, nickname, position, description }) => {
-//     return({type: ADD_SMURF_SUCCESS, payload: { id: Date().getUTCMilliseconds(), name: name, position: position, nickname: nickname, description: description }})
-// }
-
 
 // Task List:
 // 1. Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retrieve smurfs from our server, saves the result of that call to our state and shows an error if one is made.
