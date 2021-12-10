@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 const App = (props) => {
   useEffect(() => {
     props.fetchSmurfs();
-  }, [])
+  })
 
   return (
     <div className="App">
